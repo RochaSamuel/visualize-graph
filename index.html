@@ -1,0 +1,29 @@
+<head>
+  <style> body { margin: 0; } </style>
+  <link rel="stylesheet" href="index.css"/>
+
+  <script src="//unpkg.com/3d-force-graph"></script>
+  <script src="//unpkg.com/three"></script>
+  <script src="//unpkg.com/three-spritetext"></script>
+  <!--<script src="../../dist/3d-force-graph.js"></script>-->
+</head>
+
+<body>
+  <div id='popup'>
+    <div id="d_id"></div>
+    <div id="title"></div>
+    <div id="espaco"></div>
+    <div id="colunas"></div>
+    <a id='nice_button' target="_blank" href="#">Saiba Mais</a>
+  </div>
+  <form onsubmit="handleSearchClick(event)">
+    <input type="search" id="nsearch" placeholder="node ID here" ondragenter="" name="gsearch">
+    <input type="submit" onclick="handleSearchClick(event)">
+    <div id="dropdown">
+      <select name="list" id="list"></select>
+    </div>
+  </form>
+  <div id="3d-graph"></div>
+
+  <script src="index.js"></script>
+</body>

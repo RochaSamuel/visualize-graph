@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "spacex",
+      "title": "cad_cliente",
+      "colunas": "[id_cli,nome,telefone]",
+      "tamanho_disco": 1,
+      "link": "https://www.google.com"
+    },
+    {
+      "id": "facebook",
+      "title": "sistemas",
+      "colunas": "[id_sis,nome_sis]",
+      "tamanho_disco": 2,
+      "link": "https://www.youtube.com"
+    },
+    {
+      "id": "twitter",
+      "title": "fatura",
+      "colunas": "[..id_cli, id_fat,valor,vencimento]",
+      "tamanho_disco": 3,
+      "link": "https://www.divinoamor.com.br"
+    },
+    {
+      "id": "youtube",
+      "title": "veiculo",
+      "colunas": "[..id_cli, id_vei, placa, ano]",
+      "tamanho_disco": 4,
+      "link": "https://web.whatsapp.com"
+    },
+    {
+      "id": "divino_amor",
+      "title": "residencia",
+      "colunas": "[..id_cli, id_res, cep, m2]",
+      "tamanho_disco": 5,
+      "link": "https://www.google.com"
+    }
+  ],
+  "links": [
+    {
+      "source": "spacex",
+      "target": "twitter",
+      "connection": "JBDC",
+      "periodicidade": "RT"
+    },
+    {
+      "source": "spacex",
+      "target": "divino_amor",
+      "connection": "JBDC",
+      "periodicidade": "RT"
+    },
+    {
+      "source": "spacex",
+      "target": "youtube",
+      "connection": "JBDC",
+      "periodicidade": "DIARIO"
+    },
+    {
+      "source": "facebook",
+      "target": "youtube",
+      "connection": "Linked Server",
+      "periodicidade": "DIARIO"
+    },
+    {
+      "source": "youtube",
+      "target": "divino_amor",
+      "connection": "Linked Server",
+      "periodicidade": "RT"
+    }
+  ]
+}
