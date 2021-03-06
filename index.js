@@ -1,9 +1,24 @@
 const elem = document.getElementById('3d-graph');
 const popup = document.getElementById('popup');
 
+(async () => {
+const getLinks = async () => {return await fetch('./linksv2.json').then(response => response.json()).then(json => json)};
+const getNodes = async () => {return await fetch('./nodesv2.json').then(response => response.json()).then(json => json)};
+
+console.log(getLinks)
+
+const links = await getLinks();
+const nodes = await getNodes();
+
+console.log(links)
+const data = {
+    nodes: nodes,
+    links: links
+}
+
 const Graph = ForceGraph3D()
 (elem)
-.jsonUrl('miserables.json')
+.graphData(data)
 .nodeLabel('id')
 .nodeAutoColorBy('group')
 .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
@@ -50,8 +65,7 @@ const Graph = ForceGraph3D()
 
 async function app() {
 
-    const jsondata = await fetch('miserables.json').then(response => response.json()).then(json => json)
-    var arr = jsondata.nodes.map((node) => node.id);
+    var arr = nodes.map((node) => node.id);
     var input = document.getElementById('nsearch');
     var optionsVal = document.getElementById('list');
     
@@ -136,3 +150,4 @@ function handleSearchClick(e, value) {
     );
 }
 app();
+})()
